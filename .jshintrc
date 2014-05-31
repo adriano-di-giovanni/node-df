@@ -1,0 +1,41 @@
+{
+	"-W015": true,
+	"globals": {
+		"define": true,
+
+		"require": true,
+		"exports": true,
+		"module": true,
+
+		"describe": true,
+		"it": true,
+		"beforeEach": true,
+		"expect": true,
+		"before": true,
+		"after": true,
+
+		"assert": true
+	},
+	"bitwise": true,
+	"camelcase": true,
+	"curly": true,
+	"eqeqeq": true,
+	"forin": true,
+	"immed": true,
+	"indent": 4,
+	"latedef": true,
+	"newcap": true,
+	"noarg": true,
+	"noempty": true,
+	"nonew": false,
+	"plusplus": true,
+	"quotmark": "single",
+	"undef": true,
+	"unused": true,
+	"strict": true,
+	"trailing": true,
+	"smarttabs": true,
+	"browser": true,
+	"node": true,
+	"sub": true
+}

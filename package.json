@@ -1,0 +1,14 @@
+{
+  "name": "node-df",
+  "version": "0.0.0",
+  "description": "",
+  "main": "lib/df.js",
+  "scripts": {
+    "test": "mocha -R spec test/"
+  },
+  "author": "Adriano Di Giovanni <me@adrianodigiovanni.com> (http://adrianodigiovanni.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "underscore": "^1.6.0"
+  }
+}
