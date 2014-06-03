@@ -14,7 +14,7 @@ $ npm install node-df
 
 ```javascript
 var
-    df = require(`node-df`);
+    df = require('node-df');
 
 df(function (error, response) {
     if (error) { throw error; }
