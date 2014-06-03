@@ -26,7 +26,7 @@ describe('df', function () {
     var
       options = {
         file: '/',
-        prefixMultiplier: 'G',
+        prefixMultiplier: 'GB',
         isDisplayPrefixMultiplier: true,
         precision: 2
       };
@@ -40,5 +40,5 @@ describe('df', function () {
 
       done();
     });
-  })
+  });
 });
