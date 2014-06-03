@@ -25,7 +25,10 @@ describe('df', function () {
   it('options', function (done) {
     var
       options = {
-        file: '/'
+        file: '/',
+        prefixMultiplier: 'G',
+        isDisplayPrefixMultiplier: true,
+        precision: 2
       };
 
     df(options, function (error, response) {
