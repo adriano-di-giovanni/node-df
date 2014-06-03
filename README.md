@@ -70,7 +70,7 @@ Output from `df` looks like this:
 ]
 ```
 
-Values for `size`, `used` and `available` are expressed in KiB (1024 bytes).
+Values for `size`, `used` and `available` are expressed in `KiB` (1024 bytes).
 
 Value for `capacity` is a number between `0` and `1`. `capacity` is also known as `used%`
 
