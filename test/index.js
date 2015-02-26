@@ -22,13 +22,13 @@ describe('df', function () {
     });
   });
 
-  it('options', function (done) {
+  it.only('options', function (done) {
     var
       options = {
         file: '/',
         prefixMultiplier: 'GB',
         isDisplayPrefixMultiplier: true,
-        precision: 2
+        precision: 0
       };
 
     df(options, function (error, response) {
