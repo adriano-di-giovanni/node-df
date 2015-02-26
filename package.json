@@ -1,6 +1,6 @@
 {
   "name": "node-df",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A cross-platform Node.js wrapper around the standard Unix computer program, df.",
   "main": "lib/df.js",
   "scripts": {
