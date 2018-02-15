@@ -1,5 +1,7 @@
 # df
 
+[![Build Status](https://travis-ci.org/adriano-di-giovanni/node-df.svg?branch=master)](https://travis-ci.org/adriano-di-giovanni/node-df)
+
 `node-df` (abbreviation of **d**isk **f**ree) is a cross-platform Node.js wrapper around the standard Unix computer program, [df](http://en.wikipedia.org/wiki/Df_(Unix)).
 
 ## Installation
