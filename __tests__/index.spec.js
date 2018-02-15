@@ -1,5 +1,5 @@
 var async = require('async')
-var df = require('../lib/df')
+var df = require('../lib')
 
 it('should be a function', function() {
     expect(typeof df).toBe('function')
@@ -14,6 +14,22 @@ it("should accept a 'callback' function as first argument", function(done) {
 it("should accept an 'options' object as first argument", function(done) {
     expect(function() {
         df({}, done)
+    }).not.toThrow()
+})
+
+// TODO: should throw
+// Breaking change to be made after releasing 0.1.4
+it('should fallback to default options if arguments are missing', function() {
+    expect(function() {
+        df()
+    }).not.toThrow()
+})
+
+// TODO: should throw
+// Breaking change to be made after releasing 0.1.4
+it('should fallback to default options if first argument is not an object', function() {
+    expect(function() {
+        df(true)
     }).not.toThrow()
 })
 
@@ -42,11 +58,42 @@ it('should return an array of objects', function(done) {
     })
 })
 
+// TODO: isDisplayPrefixMultiplier should be considered even if prefixMultiplier is not
+// specificied because the default prefixMultiplier is KiB
+it("should ignore 'isDisplayPrefixMultiplier' if 'prefixMultiplier' is not specified", function(done) {
+    var options = {
+        isDisplayPrefixMultiplier: true,
+    }
+
+    df(options, function(err, entries) {
+        if (err) {
+            done(err)
+            return
+        }
+
+        expect(Array.isArray(entries)).toBe(true)
+        entries.forEach(function(entry) {
+            expect(entry).toEqual(
+                expect.objectContaining({
+                    filesystem: expect.any(String),
+                    size: expect.any(Number),
+                    used: expect.any(Number),
+                    available: expect.any(Number),
+                    capacity: expect.any(Number),
+                    mount: expect.any(String),
+                })
+            )
+        })
+
+        done()
+    })
+})
+
 it('should display prefix multiplier', function(done) {
     var options = {
         // NOTE: isDisplayPrefixMultiplier is ignored if prefiMultiplier is not specified
         // TODO: isDisplayPrefixMultiplier should be considered even if prefixMultiplier is not
-        // specificied because the defualt prefixMultiplier is KiB
+        // specificied because the default prefixMultiplier is KiB
         prefixMultiplier: 'KiB',
         isDisplayPrefixMultiplier: true,
     }
@@ -76,6 +123,72 @@ it('should display prefix multiplier', function(done) {
 
         done()
     })
+})
+
+// TODO: should invoke callback with `err`
+// It's a breaking change to be made after releasing 0.1.4
+it("should throw if 'prefixMultiplier' is not a string", function() {
+    expect(function() {
+        var options = {
+            prefixMultiplier: true,
+        }
+        df(options)
+    })
+})
+
+// TODO: should invoke callback with `err`
+// It's a breaking change to be made after releasing 0.1.4
+it("should ignore 'prefixMultiplier' if it is not a valid one", function(done) {
+    var options = {
+        prefixMultiplier: 'invalid',
+    }
+    df(options, function(err, entries) {
+        if (err) {
+            done(err)
+            return
+        }
+
+        expect(Array.isArray(entries)).toBe(true)
+        entries.forEach(function(entry) {
+            expect(entry).toEqual(
+                expect.objectContaining({
+                    filesystem: expect.any(String),
+                    size: expect.any(Number),
+                    used: expect.any(Number),
+                    available: expect.any(Number),
+                    capacity: expect.any(Number),
+                    mount: expect.any(String),
+                })
+            )
+        })
+
+        done()
+    })
+})
+
+// TODO: should fail
+// It's a breaking change to be made after releasing 0.1.4
+it("should ignore 'precision' if it is not a number", function(done) {
+    async.series(
+        [
+            function(callback) {
+                df({ prefixMultiplier: 'MiB' }, callback)
+            },
+            function(callback) {
+                df({ prefixMultiplier: 'MiB', precision: '2' }, callback)
+            },
+        ],
+        function(err, results) {
+            if (err) {
+                done(err)
+                return
+            }
+
+            expect(results[0]).toEqual(results[1])
+
+            done()
+        }
+    )
 })
 
 it('should use given prefix multiplier', function(done) {
@@ -173,7 +286,8 @@ it('should use given precision when prefix multiplier is displayed', function(do
     })
 })
 
-// TODO: change behavior and make df fail. This change is breaking
+// TODO: change behavior and make df fail
+// It's a breaking change to be made after releasing 0.1.4
 it('should ignore invalid prefix multiplier and fallback to KiB', function(done) {
     async.series(
         [
