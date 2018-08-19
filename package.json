@@ -1,6 +1,6 @@
 {
     "name": "node-df-win-posix",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description":
         "A cross-platform Node.js wrapper around the standard Unix computer program, df.",
     "main": "lib/index.js",
