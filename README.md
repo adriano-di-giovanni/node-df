@@ -14,15 +14,20 @@ $ npm install node-df
 
 ### Basic
 
+It will return a promise if the callback isn't passed.
+
 ```javascript
 var
     df = require('node-df');
-
+// with callback
 df(function (error, response) {
     if (error) { throw error; }
 
     console.log(JSON.stringify(response, null, 2));
 });
+// with promises:
+df()
+    .then((response) => console.log(JSON.stringify(response, null, 2)));
 ```
 
 Output from `df` looks like this:

@@ -1,13 +1,13 @@
 {
-    "name": "node-df",
-    "version": "0.1.4",
+    "name": "node-df-win-posix",
+    "version": "0.3.0",
     "description":
         "A cross-platform Node.js wrapper around the standard Unix computer program, df.",
     "main": "lib/index.js",
     "scripts": {
         "precommit": "lint-staged",
         "test:coverage": "npm test -- --coverage",
-        "test": "jest"
+        "test": "jest --env=node"
     },
     "author": "Adriano Di Giovanni <me@adrianodigiovanni.com> (http://adrianodigiovanni.com/)",
     "license": "MIT",
@@ -31,15 +31,15 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/adriano-di-giovanni/node-df.git"
+        "url": "https://github.com/dreamdevil00/node-df.git"
     },
     "keywords": ["node", "df", "disk", "free", "diskfree"],
     "bugs": {
-        "url": "https://github.com/adriano-di-giovanni/node-df/issues"
+        "url": "https://github.com/dreamdevil00/node-df/issues"
     },
     "lint-staged": {
         "*.js": ["eslint --fix", "git add"],
         "*.json": ["prettier --write", "git add"]
     },
-    "homepage": "https://github.com/adriano-di-giovanni/node-df"
+    "homepage": "https://github.com/dreamdevil00/node-df.git"
 }
