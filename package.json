@@ -7,7 +7,7 @@
     "scripts": {
         "precommit": "lint-staged",
         "test:coverage": "npm test -- --coverage",
-        "test": "jest"
+        "test": "jest --env=node"
     },
     "author": "Adriano Di Giovanni <me@adrianodigiovanni.com> (http://adrianodigiovanni.com/)",
     "license": "MIT",
