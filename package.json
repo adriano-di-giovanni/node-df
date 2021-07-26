@@ -11,9 +11,6 @@
     },
     "author": "Adriano Di Giovanni <me@adrianodigiovanni.com> (http://adrianodigiovanni.com/)",
     "license": "MIT",
-    "dependencies": {
-        "underscore": "^1.6.0"
-    },
     "devDependencies": {
         "async": "^2.6.0",
         "eslint": "^4.17.0",
